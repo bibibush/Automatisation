@@ -26,7 +26,7 @@ def automatiser():
 
     dir_path = '//srvlabreche/Dossier semaine commun'
     planning_path = f'Production/Planification de la production/Semaine {entry.get()} - Planning Fabrication.xlsm'
-    save_path = f'Production/Planification de la production/Test Semaine {entry.get()} - Planning Fabrication.xlsm'
+    save_path = f'Production/Planification de la production/Semaine {entry.get()} - Planning Fabrication.xlsm'
     stock_path = 'Stock/Stock Produits finis.xlsm'
     
     stock_wb = openpyxl.load_workbook(os.path.join(dir_path, stock_path), data_only= True, keep_vba=True)
