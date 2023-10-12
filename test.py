@@ -3,22 +3,18 @@ import math
 import os
 
 dir_path = '//srvlabreche/Dossier semaine commun'
-planning_path = 'Production/Planification de la production/Semaine 40 - Planning Fabrication.xlsm'
-save_path = 'Production/Planification de la production/Test Semaine 40 - Planning Fabrication.xlsm'
 stock_path = 'Stock/Stock Produits finis.xlsm'
 
 stock_wb = openpyxl.load_workbook(os.path.join(dir_path, stock_path), data_only= True, keep_vba=True)
-planning_wb = openpyxl.load_workbook(os.path.join(dir_path, planning_path), keep_vba= True)
 
-planning_ws = planning_wb.worksheets[0]
+hm = stock_wb.worksheets[4]
 
-specialite = stock_wb.worksheets[5]
 
-specialite_data = [specialite['AJ36'].value,]
-specialite_s = [5.5]
-specialite_TOTAL = [specialite['R39'].value,]
-specialite_melee = [(specialite['AJ38'].value * specialite['AA38'].value)]
-specialite_m = [specialite['AA38'].value,]
+specialite_data = [hm['AJ46'].value,]
+specialite_s = [5.7]
+specialite_TOTAL = [hm['R51'].value,]
+specialite_melee = [(hm['AJ48'].value * hm['AA48'].value)]
+specialite_m = [hm['AA48'].value,]
 
 data = []
 for i in range(len(specialite_data)):
@@ -38,4 +34,4 @@ for i in range(len(specialite_data)):
         else:
             data.append(z)
 
-print(data[0])
+print(data)

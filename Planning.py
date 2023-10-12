@@ -42,7 +42,7 @@ def automatiser():
         halal_data = [halal['AK28'].value, halal['AK51'].value, halal['AK128'].value,
                     halal['AK135'].value, halal['AK84'].value, halal['AK116'].value] 
 
-        halal_s = [3, 3, 3, 3, 6, 6]
+        halal_s = [4, 4, 4, 4, 8, 8]
         halal_total = [
             halal['R28'].value,
             halal['R51'].value,
@@ -112,7 +112,7 @@ def automatiser():
             HG_SAG['AJ60'].value,
             HG_SAG['AJ18'].value,
         ]
-        HG_S = [5, 3, 3.5, 5.9, 6, 4.5]
+        HG_S = [5, 3, 3.5, 5.9, 7, 4.5]
         HG_TOTAL = [
             HG_SAG['R119'].value,
             HG_SAG['R83'].value,
@@ -185,7 +185,7 @@ def automatiser():
             HM['AJ19'].value,
             BN['AJ68'].value,
         ]
-        HM_s = [5.24, 6, 5, 3.5, 5, 7, 7.3]
+        HM_s = [5.9, 7, 5, 3.5, 5, 7, 7.3]
         HM_TOTAL = [
             HM['R51'].value,
             HM['R75'].value,
@@ -273,7 +273,7 @@ def automatiser():
             specialite['AJ230'].value,
             specialite['AJ207'].value,
         ]
-        specialite_s = [5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5, 5.5]
+        specialite_s = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6]
         specialite_TOTAL = [
             specialite['R16'].value,
             specialite['R39'].value,
