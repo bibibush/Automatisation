@@ -268,10 +268,10 @@ def automatiser():
             specialite['AJ124'].value,
             specialite['AJ158'].value,
             specialite['AJ174'].value,
-            specialite['AJ263'].value,
-            specialite['AJ195'].value,
-            specialite['AJ230'].value,
-            specialite['AJ207'].value,
+            specialite['AJ265'].value,
+            specialite['AJ197'].value,
+            specialite['AJ232'].value,
+            specialite['AJ209'].value,
         ]
         specialite_s = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6]
         specialite_TOTAL = [
@@ -289,11 +289,11 @@ def automatiser():
             specialite['R93'].value,
             specialite['R127'].value,
             specialite['R161'].value,
-            specialite['R177'].value,
-            specialite['R266'].value,
-            specialite['R198'].value,
-            specialite['R233'].value,
-            specialite['R210'].value,
+            specialite['R179'].value,
+            specialite['R268'].value,
+            specialite['R200'].value,
+            specialite['R235'].value,
+            specialite['R212'].value,
         ]
         specialite_melee = [
             (specialite['AJ15'].value * specialite['AA15'].value),
@@ -310,11 +310,11 @@ def automatiser():
             (specialite['AJ92'].value * specialite['AA92'].value),
             (specialite['AJ126'].value * specialite['AA126'].value),
             (specialite['AJ160'].value * specialite['AA160'].value),
-            (specialite['AJ176'].value * specialite['AA176'].value),
-            (specialite['AJ265'].value * specialite['AA265'].value),
-            (specialite['AJ197'].value * specialite['AA197'].value),
-            (specialite['AJ232'].value * specialite['AA232'].value),
-            (specialite['AJ209'].value * specialite['AA209'].value),
+            (specialite['AJ178'].value * specialite['AA178'].value),
+            (specialite['AJ267'].value * specialite['AA267'].value),
+            (specialite['AJ199'].value * specialite['AA199'].value),
+            (specialite['AJ234'].value * specialite['AA234'].value),
+            (specialite['AJ211'].value * specialite['AA211'].value),
         ]
         specialite_m = [
             specialite['AA15'].value,
@@ -331,11 +331,11 @@ def automatiser():
             specialite['AA92'].value,
             specialite['AA126'].value,
             specialite['AA160'].value,
-            specialite['AA176'].value,
-            specialite['AA265'].value,
-            specialite['AA197'].value,
-            specialite['AA232'].value,
-            specialite['AA209'].value,
+            specialite['AA178'].value,
+            specialite['AA267'].value,
+            specialite['AA199'].value,
+            specialite['AA234'].value,
+            specialite['AA211'].value,
         ]
         specialite_planning_s_en_cours = []
         for i in range(66, 81 + 1):
@@ -375,7 +375,7 @@ def automatiser():
 
         # FILET MIGNON
         data = []
-        if HG_SAG['AJ122'].value >= 5:
+        if HG_SAG['AJ122'].value <= 5:
             data.append(100)
         else:
             data.append(0)
