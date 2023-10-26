@@ -30,7 +30,6 @@ def automatiser():
     stock_path = 'Stock/Stock Produits finis.xlsm'
 
     with xw.App(visible=False) as app:
-        app.screen_updating = False
         stock_wb = xw.Book(os.path.join(dir_path, stock_path))
         planning_wb = xw.Book(os.path.join(dir_path, planning_path))
 
@@ -385,7 +384,6 @@ def automatiser():
         planning_wb.save(os.path.join(dir_path, save_path))
         stock_wb.close()
         planning_wb.close()
-        app.screen_updating = True
     print('Parfait !')
     pyautogui.alert('Parfait !')
 
