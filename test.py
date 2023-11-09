@@ -8,13 +8,15 @@ stock_path = 'Stock/Stock Produits finis.xlsm'
 stock_wb = openpyxl.load_workbook(os.path.join(dir_path, stock_path), data_only= True, keep_vba=True)
 
 hm = stock_wb.worksheets[4]
+halal = stock_wb.worksheets[1]
 
 
-specialite_data = [hm['AJ46'].value,]
-specialite_s = [5.7]
-specialite_TOTAL = [hm['R51'].value,]
-specialite_melee = [(hm['AJ48'].value * hm['AA48'].value)]
-specialite_m = [hm['AA48'].value,]
+
+specialite_data = [halal['AK84'].value,]
+specialite_s = [8]
+specialite_TOTAL = [halal['R85'].value,]
+specialite_melee = [(halal['AK82'].value * halal['AA82'].value)]
+specialite_m = [halal['AA82'].value,]
 
 data = []
 for i in range(len(specialite_data)):

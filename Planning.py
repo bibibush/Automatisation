@@ -111,7 +111,7 @@ def automatiser():
             HG_SAG['AJ60'].value,
             HG_SAG['AJ18'].value,
         ]
-        HG_S = [5, 3, 3.5, 5.9, 7, 4.5]
+        HG_S = [5, 3, 4, 5.9, 7, 4.5]
         HG_TOTAL = [
             HG_SAG['R119'].value,
             HG_SAG['R83'].value,
