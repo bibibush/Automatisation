@@ -266,7 +266,7 @@ def automatiser():
             specialite['AJ90'].value,
             specialite['AJ124'].value,
             specialite['AJ158'].value,
-            specialite['AJ174'].value,
+            specialite['AJ176'].value,
             specialite['AJ265'].value,
             specialite['AJ197'].value,
             specialite['AJ232'].value,
