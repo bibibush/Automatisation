@@ -53,11 +53,6 @@ def automatiser():
             (halal['AK82'].value * halal['AA82'].value), 
             (halal['AK114'].value * halal['AA114'].value), 
             ]
-        for h in halal_melee:
-            if h == 0:
-                h = 0.001
-            else:
-                pass
         halal_m = [
             halal['AA25'].value,
             halal['AA48'].value,
@@ -94,13 +89,7 @@ def automatiser():
             if halal_planning_s_en_cours[i] >= data[i]:
                 planning_ws[f'E{order[i]}'].value = 0
             else:
-                planning_ws[f'E{order[i]}'].value = data[i] - halal_planning_s_en_cours[i]
-            
-            planning_ws[f'J{order[i]}'].value = (halal_total[i] + (planning_ws[f'F{order[i]}'].value * halal_m[i]) + (planning_ws[f'E{order[i]}'].value * halal_m[i])- (2 * halal_melee[i])) / halal_melee[i]
-                        
-                                             
-        
-            
+                planning_ws[f'E{order[i]}'].value = data[i] - halal_planning_s_en_cours[i]            
 
         # H.G, S.A.G
         HG_SAG = stock_wb.sheets[2]
@@ -129,11 +118,6 @@ def automatiser():
             (HG_SAG['AJ58'].value * HG_SAG['AA60'].value),
             (HG_SAG['AJ16'].value * HG_SAG['AA16'].value),
         ]
-        for h in HG_melee:
-            if h == 0:
-                h = 0.001
-            else:
-                pass
         HG_m = [
             HG_SAG['AA118'].value,
             HG_SAG['AA82'].value,
@@ -177,8 +161,6 @@ def automatiser():
             else:
                 planning_ws[f'E{order[i]}'].value = data[i] - HG_planning_s_en_cours[i]
 
-            planning_ws[f'J{order[i]}'].value = (HG_TOTAL[i] + (planning_ws[f'F{order[i]}'].value * HG_m[i]) + (planning_ws[f'E{order[i]}'].value * HG_m[i]) - (2 * HG_melee[i])) / HG_melee[i]
-
         # HM, BN
         BN = stock_wb.sheets[3]
         HM = stock_wb.sheets[4]
@@ -211,11 +193,6 @@ def automatiser():
             (HM['AJ21'].value * HM['AA21'].value),
             (BN['AJ66'].value * BN['AA66'].value),
         ]
-        for h in HM_melee:
-            if h == 0:
-                h = 0.001
-            else:
-                pass
         HM_m = [
             HM['AA48'].value,
             HM['AA72'].value,
@@ -259,9 +236,6 @@ def automatiser():
                 planning_ws[f'E{order[i]}'].value = 0
             else:
                 planning_ws[f'E{order[i]}'].value = data[i] - HM_planning_s_en_cours[i]
-
-            planning_ws[f'J{order[i]}'].value = (HM_TOTAL[i] + (planning_ws[f'F{order[i]}'].value * HM_m[i]) + (planning_ws[f'E{order[i]}'].value * HM_m[i]) - (2 * HM_melee[i])) / HM_melee[i]
-
 
         # SPECIALITE
         specialite = stock_wb.sheets[5]
@@ -330,11 +304,6 @@ def automatiser():
             (specialite['AJ234'].value * specialite['AA234'].value),
             (specialite['AJ211'].value * specialite['AA211'].value),
         ]
-        for h in specialite_melee:
-            if h == 0:
-                h = 0.001
-            else:
-                pass
         specialite_m = [
             specialite['AA15'].value,
             specialite['AA38'].value,
@@ -386,16 +355,12 @@ def automatiser():
             else:
                 planning_ws[f'E{i}'].value = data[i - 66] - specialite_planning_s_en_cours[i - 66]
             
-            planning_ws[f'J{i}'].value = (specialite_TOTAL[i - 66] + (planning_ws[f'F{i}'].value * specialite_m[i - 66]) + (planning_ws[f'E{i}'].value * specialite_m[i - 66]) - (2 * specialite_melee[i - 66])) / specialite_melee[i - 66]
-
         for i in range(87, 89 + 1):
             if specialite_planning_s_en_cours[i - 71] >= data[i - 71]:
                 planning_ws[f'E{i}'].value = 0
             else:
                 planning_ws[f'E{i}'].value = data[i - 71] - specialite_planning_s_en_cours[i - 71]
             
-            planning_ws[f'J{i}'].value = (specialite_TOTAL[i - 71] + (planning_ws[f'F{i}'].value * specialite_m[i - 71]) + (planning_ws[f'E{i}'].value * specialite_m[i - 71]) - (2 * specialite_melee[i - 71])) / specialite_melee[i - 71]
-
         # FILET MIGNON
         data = []
         if HG_SAG['AJ122'].value <= 5:
