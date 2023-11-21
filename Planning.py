@@ -92,14 +92,22 @@ def automatiser():
                     data.append(z)
                 else:
                     data.append(z)
+        
 
         for i in range(7, 12 + 1):
             if halal_planning_s_en_cours[i - 7] >= data[i - 7]:
                 planning_ws[f'E{i}'].value = 0
             else:
                 planning_ws[f'E{i}'].value = data[i - 7] - halal_planning_s_en_cours[i - 7]
-
-
+            
+            planning_ws[f'J{i}'].value = (halal_total[i - 7]
+                                           + (planning_ws[f'F{i}'].value * halal_m[i - 7])
+                                             + (planning_ws[f'E{i}'].value * halal_m[i - 7])
+                                               - (2 * halal_melee[i - 7])) / halal_melee[i - 7]
+                        
+                                             
+        
+            
 
         # H.G, S.A.G
         HG_SAG = stock_wb.sheets[2]
@@ -170,6 +178,11 @@ def automatiser():
                 planning_ws[f'E{order[i]}'].value = 0
             else:
                 planning_ws[f'E{order[i]}'].value = data[i] - HG_planning_s_en_cours[i]
+
+            planning_ws[f'J{order[i]}'].value = (HG_TOTAL[i]
+                                           + (planning_ws[f'F{order[i]}'].value * HG_m[i])
+                                             + (planning_ws[f'E{order[i]}'].value * HG_m[i])
+                                               - (2 * HG_melee[i])) / HG_melee[i]
 
         # HM, BN
         BN = stock_wb.sheets[3]
@@ -246,6 +259,11 @@ def automatiser():
                 planning_ws[f'E{order[i]}'].value = 0
             else:
                 planning_ws[f'E{order[i]}'].value = data[i] - HM_planning_s_en_cours[i]
+
+            planning_ws[f'J{order[i]}'].value = (HM_TOTAL[i]
+                                           + (planning_ws[f'F{order[i]}'].value * HM_m[i])
+                                             + (planning_ws[f'E{order[i]}'].value * HM_m[i])
+                                               - (2 * HM_melee[i])) / HM_melee[i]
 
 
         # SPECIALITE
@@ -365,12 +383,22 @@ def automatiser():
                 planning_ws[f'E{i}'].value = 0
             else:
                 planning_ws[f'E{i}'].value = data[i - 66] - specialite_planning_s_en_cours[i - 66]
+            
+            planning_ws[f'J{i}'].value = (specialite_TOTAL[i - 66]
+                                           + (planning_ws[f'F{i}'].value * specialite_m[i - 66])
+                                             + (planning_ws[f'E{i}'].value * specialite_m[i - 66])
+                                               - (2 * specialite_melee[i - 66])) / specialite_melee[i - 66]
 
         for i in range(87, 89 + 1):
             if specialite_planning_s_en_cours[i - 71] >= data[i - 71]:
                 planning_ws[f'E{i}'].value = 0
             else:
                 planning_ws[f'E{i}'].value = data[i - 71] - specialite_planning_s_en_cours[i - 71]
+            
+            planning_ws[f'J{i}'].value = (specialite_TOTAL[i - 71]
+                                           + (planning_ws[f'F{i}'].value * specialite_m[i - 71])
+                                             + (planning_ws[f'E{i}'].value * specialite_m[i - 71])
+                                               - (2 * specialite_melee[i - 71])) / specialite_melee[i - 71]
 
         # FILET MIGNON
         data = []
