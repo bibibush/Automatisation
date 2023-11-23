@@ -223,12 +223,26 @@ def automatiser():
                 x = round(x, 1)
                 z = math.ceil(x)
                 if (z * 10) - (x * 10) >= 5:
-                    data.append(z - 0.5)
+                    if i == 0:
+                        data.append(z)
+                    elif i == 2:
+                        if z % 2 ==0:
+                            data.append(z)
+                        else:
+                            data.append(z + 1)
+                    else:
+                        data.append(z - 0.5)
                 elif z == 0:
                     z = 0.5
                     data.append(z)
                 else:
-                    data.append(z)
+                    if i == 2:
+                      if z % 2 ==0:
+                        data.append(z)
+                      else:
+                        data.append(z + 1)   
+                    else: 
+                        data.append(z)
         order = [44, 45, 56, 57, 58, 59, 61]
 
         for i in range(len(HM_planning_s_en_cours)):
@@ -342,7 +356,10 @@ def automatiser():
                 x = round(x, 1)
                 z = math.ceil(x)
                 if (z * 10) - (x * 10) >= 5:
-                    data.append(z - 0.5)
+                    if i == 16 or i == 17 or i == 18:
+                        data.append(z)
+                    else:
+                        data.append(z - 0.5)
                 elif z == 0:
                     z = 0.5
                     data.append(z)
