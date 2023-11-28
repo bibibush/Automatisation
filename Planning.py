@@ -100,8 +100,9 @@ def automatiser():
             HG_SAG['AJ37'].value,
             HG_SAG['AJ60'].value,
             HG_SAG['AJ18'].value,
+            HG_SAG['AJ69'].value,
         ]
-        HG_S = [5, 3, 4, 5.9, 7, 4.5]
+        HG_S = [5, 3, 4, 5.9, 7, 4.5, 8]
         HG_TOTAL = [
             HG_SAG['R119'].value,
             HG_SAG['R83'].value,
@@ -109,6 +110,7 @@ def automatiser():
             HG_SAG['R38'].value,
             HG_SAG['R61'].value,
             HG_SAG['R19'].value,
+            HG_SAG['R68'].value,
         ]
         HG_melee = [
             (HG_SAG['AJ116'].value * HG_SAG['AA118'].value),
@@ -117,6 +119,7 @@ def automatiser():
             (HG_SAG['AJ35'].value * HG_SAG['AA35'].value),
             (HG_SAG['AJ58'].value * HG_SAG['AA60'].value),
             (HG_SAG['AJ16'].value * HG_SAG['AA16'].value),
+            (HG_SAG['AJ67'].value * HG_SAG['AA67'].value),
         ]
         HG_m = [
             HG_SAG['AA118'].value,
@@ -125,6 +128,7 @@ def automatiser():
             HG_SAG['AA35'].value,
             HG_SAG['AA60'].value,
             HG_SAG['AA16'].value,
+            HG_SAG['AA67'].value,
         ]
         HG_planning_s_en_cours = [
             planning_ws['F16'].value,
@@ -133,6 +137,7 @@ def automatiser():
             planning_ws['F34'].value,
             planning_ws['F35'].value,
             planning_ws['F37'].value,
+            planning_ws['F39'].value,
         ]
 
         data = []
@@ -153,7 +158,7 @@ def automatiser():
                 else:
                     data.append(z)
 
-        order = [16, 32, 33, 34, 35, 37]
+        order = [16, 32, 33, 34, 35, 37, 39]
 
         for i in range(len(HG_planning_s_en_cours)):
             if HG_planning_s_en_cours[i] >= data[i]:
