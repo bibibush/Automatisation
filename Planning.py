@@ -151,7 +151,10 @@ def automatiser():
                 x = round(x, 1)
                 z = math.ceil(x)
                 if (z * 10) - (x * 10) >= 5:
-                    data.append(z - 0.5)
+                    if i == 1:
+                        data.append(z)
+                    else:
+                        data.append(z - 0.5)
                 elif z == 0:
                     z = 0.5
                     data.append(z)
