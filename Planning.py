@@ -8,7 +8,7 @@ import pyautogui
 
 root = Tk()
 root.title('Automatisation de planning de fabrication')
-label = Label(root, text='Mettez le numero de la semaine de planning')
+label = Label(root, text='Rentrer le numéro de la semaine choisie')
 label_vide = Label(root, text='', width=5, height=10)
 entry = Entry(root, width=15)
 btn = Button(root, width=10 ,text='Lancer')
