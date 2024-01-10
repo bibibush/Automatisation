@@ -89,7 +89,8 @@ def automatiser():
             if halal_planning_s_en_cours[i] >= data[i]:
                 planning_ws[f'E{order[i]}'].value = 0
             else:
-                planning_ws[f'E{order[i]}'].value = data[i] - halal_planning_s_en_cours[i]            
+                planning_ws[f'E{order[i]}'].value = data[i] - halal_planning_s_en_cours[i]
+        print("halal bon")          
 
         # H.G, S.A.G
         HG_SAG = stock_wb.sheets[2]
@@ -168,6 +169,7 @@ def automatiser():
                 planning_ws[f'E{order[i]}'].value = 0
             else:
                 planning_ws[f'E{order[i]}'].value = data[i] - HG_planning_s_en_cours[i]
+        print("hg, sag bon")
 
         # HM, BN
         BN = stock_wb.sheets[3]
@@ -179,17 +181,15 @@ def automatiser():
             HM['AJ27'].value,
             HM['AJ3'].value,
             HM['AJ11'].value,
-            HM['AJ19'].value,
             BN['AJ68'].value,
         ]
-        HM_s = [5.9, 7, 5, 3.5, 5, 7, 7.3]
+        HM_s = [5.9, 7, 5, 3.5, 5, 7.3]
         HM_TOTAL = [
             HM['R51'].value,
             HM['R75'].value,
             HM['R33'].value,
             HM['R8'].value,
             HM['R16'].value,
-            HM['R24'].value,
             BN['R69'].value,
         ]
         HM_melee = [
@@ -198,7 +198,6 @@ def automatiser():
             (HM['AJ29'].value * HM['AA29'].value),
             (HM['AJ5'].value * HM['AA5'].value),
             (HM['AJ13'].value * HM['AA13'].value),
-            (HM['AJ21'].value * HM['AA21'].value),
             (BN['AJ66'].value * BN['AA66'].value),
         ]
         HM_m = [
@@ -207,7 +206,6 @@ def automatiser():
             HM['AA29'].value,
             HM['AA5'].value,
             HM['AA13'].value,
-            HM['AA21'].value,
             BN['AA66'].value,
         ]
         HM_planning_s_en_cours = [
@@ -216,7 +214,6 @@ def automatiser():
             planning_ws['F56'].value,
             planning_ws['F57'].value,
             planning_ws['F58'].value,
-            planning_ws['F59'].value,
             planning_ws['F61'].value,
         ]
 
@@ -251,13 +248,15 @@ def automatiser():
                         data.append(z + 1)   
                     else: 
                         data.append(z)
-        order = [44, 45, 56, 57, 58, 59, 61]
+        order = [44, 45, 56, 57, 58, 61]
 
         for i in range(len(HM_planning_s_en_cours)):
             if HM_planning_s_en_cours[i] >= data[i]:
                 planning_ws[f'E{order[i]}'].value = 0
             else:
                 planning_ws[f'E{order[i]}'].value = data[i] - HM_planning_s_en_cours[i]
+        
+        print("hm, bn bon")
 
         # SPECIALITE
         specialite = stock_wb.sheets[5]
@@ -385,6 +384,7 @@ def automatiser():
                 planning_ws[f'E{i}'].value = 0
             else:
                 planning_ws[f'E{i}'].value = data[i - 71] - specialite_planning_s_en_cours[i - 71]
+        print("spe bon")
             
         # FILET MIGNON
         data = []
@@ -394,6 +394,7 @@ def automatiser():
             data.append(0)
 
         planning_ws['E3'].value = data[0]
+        print("filet mignon bon")
 
         planning_wb.save(os.path.join(dir_path, save_path))
         stock_wb.close()
