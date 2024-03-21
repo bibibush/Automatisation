@@ -8,7 +8,7 @@ import pyautogui
 
 root = Tk()
 root.title('Automatisation de planning de fabrication')
-label = Label(root, text='Rentrer le numéro de la semaine choisie')
+label = Label(root, text='46을 입력해주세요.')
 label_vide = Label(root, text='', width=5, height=10)
 entry = Entry(root, width=15)
 btn = Button(root, width=10 ,text='Lancer')
@@ -24,14 +24,13 @@ entry.insert(0, int())
 
 def automatiser():
 
-    dir_path = '//srvlabreche/Dossier semaine commun'
-    planning_path = f'Production/Planification de la production/Semaine {entry.get()} - Planning Fabrication.xlsm'
-    save_path = f'Production/Planification de la production/Semaine {entry.get()} - Planning Fabrication.xlsm'
-    stock_path = 'Stock/Stock Produits finis.xlsm'
+    planning_path = f'Semaine {entry.get()} - Planning Fabrication.xlsm'
+    save_path = f'Semaine {entry.get()} - Planning Fabrication.xlsm'
+    stock_path = 'Stock Produits finis.xlsm'
 
     with xw.App(visible=False) as app:
-        stock_wb = xw.Book(os.path.join(dir_path, stock_path))
-        planning_wb = xw.Book(os.path.join(dir_path, planning_path))
+        planning_wb = xw.Book(planning_path)
+        stock_wb = xw.Book(stock_path)
 
         planning_ws = planning_wb.sheets[0]
 
@@ -90,7 +89,7 @@ def automatiser():
                 planning_ws[f'E{order[i]}'].value = 0
             else:
                 planning_ws[f'E{order[i]}'].value = data[i] - halal_planning_s_en_cours[i]
-        print("halal bon")          
+        print("halal good")
 
         # H.G, S.A.G
         HG_SAG = stock_wb.sheets[2]
@@ -138,7 +137,7 @@ def automatiser():
             planning_ws['F34'].value,
             planning_ws['F35'].value,
             planning_ws['F37'].value,
-            planning_ws['F39'].value,
+            planning_ws['F38'].value,
         ]
 
         data = []
@@ -162,14 +161,14 @@ def automatiser():
                 else:
                     data.append(z)
 
-        order = [16, 32, 33, 34, 35, 37, 39]
+        order = [16, 32, 33, 34, 35, 37, 38]
 
         for i in range(len(HG_planning_s_en_cours)):
             if HG_planning_s_en_cours[i] >= data[i]:
                 planning_ws[f'E{order[i]}'].value = 0
             else:
                 planning_ws[f'E{order[i]}'].value = data[i] - HG_planning_s_en_cours[i]
-        print("hg, sag bon")
+        print("hg, sag good")
 
         # HM, BN
         BN = stock_wb.sheets[3]
@@ -256,7 +255,7 @@ def automatiser():
             else:
                 planning_ws[f'E{order[i]}'].value = data[i] - HM_planning_s_en_cours[i]
         
-        print("hm, bn bon")
+        print("hm, bn good")
 
         # SPECIALITE
         specialite = stock_wb.sheets[5]
@@ -276,11 +275,11 @@ def automatiser():
             specialite['AJ90'].value,
             specialite['AJ124'].value,
             specialite['AJ158'].value,
-            specialite['AJ176'].value,
-            specialite['AJ265'].value,
-            specialite['AJ197'].value,
-            specialite['AJ232'].value,
-            specialite['AJ209'].value,
+            specialite['AJ174'].value,
+            specialite['AJ263'].value,
+            specialite['AJ195'].value,
+            specialite['AJ230'].value,
+            specialite['AJ207'].value,
         ]
         specialite_s = [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6]
         specialite_TOTAL = [
@@ -298,11 +297,11 @@ def automatiser():
             specialite['R93'].value,
             specialite['R127'].value,
             specialite['R161'].value,
-            specialite['R179'].value,
-            specialite['R268'].value,
-            specialite['R200'].value,
-            specialite['R235'].value,
-            specialite['R212'].value,
+            specialite['R177'].value,
+            specialite['R266'].value,
+            specialite['R198'].value,
+            specialite['R233'].value,
+            specialite['R210'].value,
         ]
         specialite_melee = [
             (specialite['AJ15'].value * specialite['AA15'].value),
@@ -319,11 +318,11 @@ def automatiser():
             (specialite['AJ92'].value * specialite['AA92'].value),
             (specialite['AJ126'].value * specialite['AA126'].value),
             (specialite['AJ160'].value * specialite['AA160'].value),
-            (specialite['AJ178'].value * specialite['AA178'].value),
-            (specialite['AJ267'].value * specialite['AA267'].value),
-            (specialite['AJ199'].value * specialite['AA199'].value),
-            (specialite['AJ234'].value * specialite['AA234'].value),
-            (specialite['AJ211'].value * specialite['AA211'].value),
+            (specialite['AJ176'].value * specialite['AA176'].value),
+            (specialite['AJ265'].value * specialite['AA265'].value),
+            (specialite['AJ197'].value * specialite['AA197'].value),
+            (specialite['AJ232'].value * specialite['AA232'].value),
+            (specialite['AJ209'].value * specialite['AA209'].value),
         ]
         specialite_m = [
             specialite['AA15'].value,
@@ -340,11 +339,11 @@ def automatiser():
             specialite['AA92'].value,
             specialite['AA126'].value,
             specialite['AA160'].value,
-            specialite['AA178'].value,
-            specialite['AA267'].value,
-            specialite['AA199'].value,
-            specialite['AA234'].value,
-            specialite['AA211'].value,
+            specialite['AA176'].value,
+            specialite['AA265'].value,
+            specialite['AA197'].value,
+            specialite['AA232'].value,
+            specialite['AA209'].value,
         ]
         specialite_planning_s_en_cours = []
         for i in range(66, 81 + 1):
@@ -384,7 +383,7 @@ def automatiser():
                 planning_ws[f'E{i}'].value = 0
             else:
                 planning_ws[f'E{i}'].value = data[i - 71] - specialite_planning_s_en_cours[i - 71]
-        print("spe bon")
+        print("spe good")
             
         # FILET MIGNON
         data = []
@@ -394,13 +393,13 @@ def automatiser():
             data.append(0)
 
         planning_ws['E3'].value = data[0]
-        print("filet mignon bon")
+        print("filet mignon good")
 
-        planning_wb.save(os.path.join(dir_path, save_path))
+        planning_wb.save(save_path)
         stock_wb.close()
         planning_wb.close()
     print('Parfait !')
-    pyautogui.alert('Parfait !')
+    pyautogui.alert('성공!')
 
 
 def check_automatiser(event):
@@ -409,7 +408,7 @@ def check_automatiser(event):
             automatiser()
         except Exception as e:
             print(e)
-            pyautogui.alert('Appelez Jin hyeong !')
+            pyautogui.alert('실패!')
 
 btn.bind('<Button-1>', check_automatiser)
 root.mainloop()
