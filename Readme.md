@@ -38,6 +38,8 @@ dist 폴더의 planning.exe를 실행시킨 뒤 숫자 46을 넣어 실행시켜
 
 첫 번째 품목인 Halal 품목의 코드만 보여드리겠습니다.
 
+<br />
+
 <details>
 <summary><b>코드 보기</b></summary>
 
