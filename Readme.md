@@ -94,7 +94,7 @@ halal_data = [halal['AK28'].value, halal['AK51'].value, halal['AK84'].value, hal
             planning_ws['F12'].value,
         ]
 ```
-그런 다음 for 문을 사용해 리스트에 들어있는 데이터 마다 계산식을 실행시켰습니다.
+그런 다음 for 문을 사용해 리스트에 들어있는 데이터 마다 계산식을 실행시켜 data 리스트 안에 넣어줍니다.
 ```python
 data = []
         for i in range(len(halal_data)):
@@ -117,7 +117,7 @@ data = []
 
 <br />
 
-계산식을 실행한 데이터들은 for 구문을 이용해 생산 계획서에 넣어줍니다.
+data 리스트 안의 값들을 for 구문을 이용해 생산 계획서에 넣어줍니다.
 ```python
 order = [7, 8, 11, 12]
         for i in range(len(halal_data)):
